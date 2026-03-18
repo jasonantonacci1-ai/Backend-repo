@@ -83,8 +83,8 @@ app.delete('/goals/:id', async (req, res) => {
   }
 });
 
-mongoose.connect(
-  `mongodb+srv://akif:akif@cluster0.e5jbjbz.mongodb.net/?retryWrites=true&w=majority`,
+console.log("Connecting to:", process.env.MONGODB_URL);
+mongoose.connect(process.env.MONGODB_URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
