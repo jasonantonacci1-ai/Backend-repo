@@ -1,13 +1,17 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json .
+ENV MONGODB_URL=mongodb://mongodb:27017
 
-RUN npm install
+COPY package*.json ./
+
+RUN npm install --legacy-peer-deps && npm cache clean --force
 
 COPY . .
 
 EXPOSE 5000
 
 CMD [ "node","app.js" ]
+
+
