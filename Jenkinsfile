@@ -15,7 +15,7 @@ pipeline {
        }
        stage('Critical security scan') {
            steps {
-               sh 'trivy image --severity CRITICAL --exit-code 1 jasonantonacci1/backend-app --format json --output trivy-report.json'
+               sh 'trivy image --severity CRITICAL --exit-code 1 jasonantonacci1/backend-app'
                archiveArtifacts artifacts: 'trivy-report.json'
           } 
        }
