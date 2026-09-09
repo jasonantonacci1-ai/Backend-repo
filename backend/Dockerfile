@@ -2,6 +2,8 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+RUN apk upgrade --no-cache
+
 ENV MONGODB_URL=mongodb://mongodb:27017
 
 COPY package*.json ./
